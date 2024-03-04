@@ -1,11 +1,13 @@
 import { useState } from "react";
 import useFetch from "./useFetch";
+import { useHistory } from "react-router-dom";
 
 const Create = () => {
   const [title, setTitle] = useState("");
   const [body, setBody] = useState("");
   const [author, setAuthor] = useState("mario");
   const [isPending, setIsPending] = useState(false)
+  const history = useHistory();
 
   const handleSubmit = (e) =>{
     e.preventDefault();// we use preventDefault() to not refresh the page when we click on the button 
@@ -17,8 +19,15 @@ const Create = () => {
       headers: { "Content-Type": 'application/json'},
       body: JSON.stringify(blog)
     }).then(()=>setIsPending(false))
+    .then(() => {
+      // history.go(-1);
+      history.push('/');
+    })
     },1000)
   }
+  
+//import { useHistory } from "react-router-dom";
+
 
   return (
     <div className="create">
