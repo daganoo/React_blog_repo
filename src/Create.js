@@ -31,9 +31,9 @@ const Create = () => {
 
   return (
     <div className="create">
-      <h2>Add a New Blog</h2>
+      <h2>Add New Blog</h2>
       <form onSubmit={handleSubmit}> 
-        <label>Blog title:</label>
+        <label>Blog title :</label>
         <input
           type="text"
           required
@@ -46,13 +46,13 @@ const Create = () => {
           value={body}
           onChange={(e) => setBody(e.target.value)}
         ></textarea>
-        <label>Blog author:</label>
+        <label>Blog author :</label>
         <select value={author} onChange={(e) => setAuthor(e.target.value)}>
           <option value="mario">mario</option>
           <option value="yoshi">yoshi</option>
         </select>
         {!isPending && <button>Add Blog</button>}
-        {isPending && <button>adding...</button>}
+        {isPending && <button>Adding...</button>}
       </form>
     </div>
   );
